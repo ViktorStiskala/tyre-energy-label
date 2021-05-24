@@ -1,8 +1,9 @@
 # Tyres EU energy label generator
+[![PyPI version](https://badge.fury.io/py/tyre-energy-label.svg)](https://badge.fury.io/py/tyre-energy-label)
 
-Generator for [EU tyre energy labels][1]. Creates a label according to thespecification as an SVG file.
+Generator for [EU tyre energy labels][1]. Creates a label according to the specification as an SVG file.
 
-[![Example label](example/example.png)](example/example.svg)
+[![Example label](https://raw.githubusercontent.com/ViktorStiskala/tyre-energy-label/main/example/example.png)](https://raw.githubusercontent.com/ViktorStiskala/tyre-energy-label/main/example/example.svg) [![Example label](https://raw.githubusercontent.com/ViktorStiskala/tyre-energy-label/main/example/example2.png)](https://raw.githubusercontent.com/ViktorStiskala/tyre-energy-label/main/example/example2.svg)
 
 ## Installation
 

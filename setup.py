@@ -13,7 +13,7 @@ with open(ROOT_DIR / 'README.md', 'r') as f_readme:
 
 setup(
     name="tyre-energy-label",
-    version="0.1",
+    version="0.1.3",
     packages=["tyre_label"],
     include_package_data=True,
     install_requires=["qrcode>=3.0.0", "jinja2>=2.9"],
@@ -21,7 +21,7 @@ setup(
     description='EU tyres energy label generator',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/ViktorStiskala/django-shared-session',
+    url='https://github.com/ViktorStiskala/tyre-energy-label',
     author='Viktor Stískala',
     author_email='viktor@stiskala.cz',
     entry_points=entry_points,

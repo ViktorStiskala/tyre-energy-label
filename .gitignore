@@ -2,3 +2,4 @@ tyre_energy_label.egg-info/
 pyproject.toml
 reqlib-metadata/
 .idea/
+dist/
