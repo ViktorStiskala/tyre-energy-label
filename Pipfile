@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+qrcode = ">=3.0.0"
+jinja2 = ">=2.9"
+
+[dev-packages]
+tyre-energy-label = {editable = true, path = "."}
+
+[requires]
+python_version = "3.9"
