@@ -3,7 +3,7 @@
 
 Generator for [EU tyre energy labels][1]. Creates a label according to the specification as an SVG file.
 
-[![Example label](https://raw.githubusercontent.com/ViktorStiskala/tyre-energy-label/main/example/example.png)](https://raw.githubusercontent.com/ViktorStiskala/tyre-energy-label/main/example/example.svg) [![Example label](https://raw.githubusercontent.com/ViktorStiskala/tyre-energy-label/main/example/example2.png)](https://raw.githubusercontent.com/ViktorStiskala/tyre-energy-label/main/example/example2.svg)
+[![Example label](https://raw.githubusercontent.com/ViktorStiskala/tyre-energy-label/main/example/example.png)](https://raw.githubusercontent.com/ViktorStiskala/tyre-energy-label/main/example/example.svg)
 
 ## Installation
 
