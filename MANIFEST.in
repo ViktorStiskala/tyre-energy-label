@@ -1,1 +1,1 @@
-include tyre_label/templates/label.svg.j2
+include tyre_label/templates/*
