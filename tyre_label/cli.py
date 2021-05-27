@@ -1,7 +1,7 @@
 import argparse
 import inspect
 import json
-from typing import Union
+from typing import Dict, Union
 
 from .label import TyreEnergyLabel
 
@@ -79,7 +79,7 @@ class Parser:
     def get_file(self):
         return self.result.filename
 
-    def parse(self, args=None) -> dict[str, Union[str, int, bool]]:
+    def parse(self, args=None) -> Dict[str, Union[str, int, bool]]:
         res = self.parser.parse_args(args)
         self.result = res
         if res.json:
