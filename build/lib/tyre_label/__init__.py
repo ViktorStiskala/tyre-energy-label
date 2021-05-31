@@ -1,2 +1,0 @@
-from .label import TyreEnergyLabel
-

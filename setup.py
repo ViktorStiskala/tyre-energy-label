@@ -13,7 +13,7 @@ with open(ROOT_DIR / 'README.md', 'r') as f_readme:
 
 setup(
     name="tyre-energy-label",
-    version="0.1.4",
+    version="0.1.5",
     packages=["tyre_label"],
     include_package_data=True,
     install_requires=["qrcode>=3.0.0", "jinja2>=2.9"],
