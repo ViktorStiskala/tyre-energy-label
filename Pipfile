@@ -9,6 +9,7 @@ jinja2 = ">=2.9"
 
 [dev-packages]
 tyre-energy-label = {editable = true, path = "."}
+tox = "*"
 
 [requires]
 python_version = "3.9"

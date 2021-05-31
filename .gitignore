@@ -4,3 +4,6 @@ reqlib-metadata/
 .idea/
 dist/
 build/
+.eggs/
+.tox/
+__pycache__
