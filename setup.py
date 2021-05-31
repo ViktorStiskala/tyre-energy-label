@@ -15,6 +15,7 @@ setup(
     name="tyre-energy-label",
     version="0.1.5",
     packages=["tyre_label"],
+    package_data={'tyre_label': ['tyre_label/templates/*']},
     include_package_data=True,
     install_requires=["qrcode>=3.0.0", "jinja2>=2.9"],
     license='MIT',
