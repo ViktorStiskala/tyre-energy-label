@@ -77,6 +77,17 @@ $ tyre-label --json '{
 }' -o example.svg
 ```
 
+## Support for PNG and PDF formats
+You can use [`librsvg`](https://gitlab.gnome.org/GNOME/librsvg) to convert resulting SVG files into PNG (bitmap) or PDF files. It's also possible to specify a zoom factor with `-z 2.0` which can be useful for bitmaps. See `man rsvg-convert` for more details.
+
+```shell
+rsvg-convert -f png example.svg > example.png
+```
+
+```shell
+rsvg-convert -f pdf example.svg > example.pdf
+```
+
 ## License
 
 Distributed under the MIT license. See [LICENSE](LICENSE) file for more details.
