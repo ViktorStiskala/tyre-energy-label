@@ -73,5 +73,5 @@ class TyreEnergyLabel:
         return svg
 
     def save(self, filename):
-        with open(filename, 'w'):
-            filename.write(self.as_svg())
+        with open(filename, 'w') as file:
+            file.write(self.as_svg())
