@@ -10,6 +10,31 @@ ROOT_DIR = Path(__file__).resolve().parent
 
 
 class TyreEnergyLabel:
+    """
+    Tyre energy label generator.
+
+    Example usage:
+
+    label = TyreEnergyLabel(
+        supplier='Cool Tyre',
+        type_identifier='94385300',
+        size='185/75 R16',
+        tyre_class='C2',
+        fuel_efficiency='E',
+        wet_grip='A',
+        roll_noise=72,
+        noise_level='C',
+        snow_grip=True,
+        ice_grip=True,
+        eprel_id=381667,
+        eprel_link='https://eprel.ec.europa.eu/qr/381667'
+    )
+    label.save('example.svg')
+
+    # optional: get SVG as a string
+    svg_data = label.as_svg(embed_fonts=True, include_link=True)
+    """
+
     META = {
         'rating_y': {'A': 38, 'B': 60, 'C': 83, 'D': 106, 'E': 128},
         'icon_x': {
