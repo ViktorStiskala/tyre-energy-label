@@ -54,6 +54,10 @@ class TyreEnergyLabel:
                  fuel_efficiency: str, wet_grip: str, roll_noise: int, noise_level: str,
                  snow_grip: bool, ice_grip: bool, eprel_id: int = None, eprel_link: str = None):
 
+        link = eprel_link
+        if link is None and eprel_id is not None:
+            link = get_eprel_link(eprel_id)
+
         self.data = {
             'supplier': supplier,
             'type_identifier': type_identifier,
@@ -65,7 +69,7 @@ class TyreEnergyLabel:
             'noise_level': noise_level.upper(),
             'snow_grip': snow_grip,
             'ice_grip': ice_grip,
-            'eprel_link': eprel_link if eprel_link is not None else get_eprel_link(eprel_id),
+            'eprel_link': link,
             'icon_count': sum([snow_grip, ice_grip]) + 1
         }
         if noise_level.upper() not in ('A', 'B', 'C'):
