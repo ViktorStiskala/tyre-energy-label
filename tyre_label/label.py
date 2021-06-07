@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Optional
 
 import qrcode
 from qrcode.image.svg import SvgPathImage
@@ -7,6 +8,10 @@ import xml.etree.ElementTree as ET
 from jinja2 import Environment, FileSystemLoader
 
 ROOT_DIR = Path(__file__).resolve().parent
+
+
+def get_eprel_link(eprel_id: int) -> str:
+    return 'https://eprel.ec.europa.eu/qr/{}'.format(eprel_id)
 
 
 class TyreEnergyLabel:
@@ -47,7 +52,7 @@ class TyreEnergyLabel:
 
     def __init__(self, supplier: str, type_identifier: str, size: str, tyre_class: str,
                  fuel_efficiency: str, wet_grip: str, roll_noise: int, noise_level: str,
-                 snow_grip: bool, ice_grip: bool, eprel_id: int, eprel_link: str):
+                 snow_grip: bool, ice_grip: bool, eprel_id: Optional[int], eprel_link: Optional[str]):
 
         self.data = {
             'supplier': supplier,
@@ -60,8 +65,7 @@ class TyreEnergyLabel:
             'noise_level': noise_level.upper(),
             'snow_grip': snow_grip,
             'ice_grip': ice_grip,
-            'eprel_id': eprel_id,
-            'eprel_link': eprel_link,
+            'eprel_link': eprel_link if eprel_link is not None else get_eprel_link(eprel_id),
             'icon_count': sum([snow_grip, ice_grip]) + 1
         }
         if noise_level.upper() not in ('A', 'B', 'C'):
@@ -69,7 +73,10 @@ class TyreEnergyLabel:
 
         self.jinja_env = Environment(loader=FileSystemLoader(ROOT_DIR / 'templates'))
 
-    def get_qrcode(self) -> str:
+    def get_qrcode(self) -> Optional[str]:
+        if not self.data['eprel_link']:
+            return None
+
         qr = qrcode.QRCode(
             version=1,
             error_correction=qrcode.constants.ERROR_CORRECT_M,

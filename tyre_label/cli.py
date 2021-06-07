@@ -22,7 +22,7 @@ type_bool.__name__ = 'boolean'
 
 
 class Parser:
-    required_args = ('supplier', 'type', 'size', 'tyre_class', 'fuel', 'wet', 'noise', 'level', 'snow', 'ice', 'eprel_id', 'url')
+    required_args = ('supplier', 'type', 'size', 'tyre_class', 'fuel', 'wet', 'noise', 'level', 'snow', 'ice')
 
     def __init__(self):
         self.json_keys = inspect.signature(TyreEnergyLabel).parameters.keys()
@@ -75,6 +75,9 @@ class Parser:
         if diff:
             diff_keys = ', '.join(diff)
             self.parser.error(f'Missing arguments: {diff_keys}')
+
+        if res.eprel_id is None and res.url is None:
+            self.parser.error('Either --url or --eprel-id is required')
 
     def get_file(self):
         return self.result.filename
