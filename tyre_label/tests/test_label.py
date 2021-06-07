@@ -1,3 +1,4 @@
+import copy
 import os
 import tempfile
 from unittest import TestCase
@@ -22,6 +23,15 @@ TEST_LABEL_DATA = {
 
 
 class TestLabel(TestCase):
+    def assertQr(self, svg):
+        root = ET.fromstring(svg)
+        namespaces = {'svg': 'http://www.w3.org/2000/svg'}
+
+        svg_g = root.find('.//svg:g[@id="QR"]', namespaces=namespaces)
+        qr_path = svg_g.find('.//svg:path', namespaces=namespaces)
+
+        self.assertRegex(qr_path.attrib['d'], r'.*M\s[\d\.]+.*', msg='SVG file should contain QR code')
+
     def test_svg_output(self):
         label = TyreEnergyLabel(**TEST_LABEL_DATA)
 
@@ -52,12 +62,13 @@ class TestLabel(TestCase):
     def test_content(self):
         label = TyreEnergyLabel(**TEST_LABEL_DATA)
 
-        root = ET.fromstring(label.as_svg())
-        namespaces = {'svg': 'http://www.w3.org/2000/svg'}
+        self.assertQr(label.as_svg())
 
-        svg_g = root.find('.//svg:g[@id="QR"]', namespaces=namespaces)
-        qr_path = svg_g.find('.//svg:path', namespaces=namespaces)
+    def test_qrcode_without_link(self):
+        test_data = copy.deepcopy(TEST_LABEL_DATA)
+        test_data.pop('eprel_link')
 
-        self.assertRegex(qr_path.attrib['d'], r'.*M\s[\d\.]+.*', msg='SVG file should contain QR code')
+        label = TyreEnergyLabel(**test_data)
+        self.assertQr(label.as_svg())
 
 

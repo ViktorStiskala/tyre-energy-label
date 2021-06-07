@@ -437,14 +437,16 @@
         <text id="2020/740" transform="translate(203.5, 291) rotate(-270) translate(-203.5, -291) " font-family="Verdana" font-size="5" font-weight="normal" fill="#231F20">
             <tspan x="191" y="293">2020/740</tspan>
         </text>
-        <g id="QR" transform="translate(173.000000, 8.000000)">
-            {% if include_link %}
-            <a href="{{ tyre.eprel_link }}" target="_blank"><polygon id="QR-code" fill="#FFFFFF" points="0 32 32 32 32 0 0 0"></polygon>
-            {% endif %}
+        {% if qr_code %}
+            <g id="QR" transform="translate(173.000000, 8.000000)">
+                {% if include_link %}
+                <a href="{{ tyre.eprel_link }}" target="_blank"><polygon id="QR-code" fill="#FFFFFF" points="0 32 32 32 32 0 0 0"></polygon>
+                {% endif %}
 
-            {{ qr_code }}
+                {{ qr_code }}
 
-            {% if include_link %}</a>{% endif %}
-        </g>
+                {% if include_link %}</a>{% endif %}
+            </g>
+        {% endif %}
     </g>
 </svg>

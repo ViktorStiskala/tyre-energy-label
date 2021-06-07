@@ -37,6 +37,8 @@ label.save('example.svg')
 svg_data = label.as_svg(embed_fonts=True, include_link=True)  
 ```
 
+If you don't specify `eprel_link`, it will be automatically generated from `eprel_id`.
+
 ## Command line interface
 The package installs `tyre-label` CLI. Use `$ tyre-label --help` for the list of available options.
 
