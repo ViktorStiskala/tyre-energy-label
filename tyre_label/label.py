@@ -70,7 +70,7 @@ class TyreEnergyLabel:
             'snow_grip': snow_grip,
             'ice_grip': ice_grip,
             'eprel_link': link,
-            'icon_count': sum([snow_grip, ice_grip]) + 1
+            'icon_count': sum([bool(snow_grip), bool(ice_grip)]) + 1
         }
         if noise_level.upper() not in ('A', 'B', 'C'):
             raise ValueError(f'Invalid noise level "{noise_level}", expected A, B or C')
