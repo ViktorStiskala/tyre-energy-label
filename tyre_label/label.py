@@ -52,7 +52,7 @@ class TyreEnergyLabel:
 
     def __init__(self, supplier: str, type_identifier: str, size: str, tyre_class: str,
                  fuel_efficiency: str, wet_grip: str, roll_noise: int, noise_level: str,
-                 snow_grip: bool, ice_grip: bool, eprel_id: Optional[int], eprel_link: Optional[str]):
+                 snow_grip: bool, ice_grip: bool, eprel_id: int = None, eprel_link: str = None):
 
         self.data = {
             'supplier': supplier,

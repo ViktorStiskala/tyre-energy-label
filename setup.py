@@ -13,7 +13,7 @@ with open(ROOT_DIR / 'README.md', 'r') as f_readme:
 
 setup(
     name="tyre-energy-label",
-    version="0.1.6",
+    version="1.0.0",
     packages=["tyre_label"],
     package_data={'tyre_label': ['tyre_label/templates/*']},
     include_package_data=True,
