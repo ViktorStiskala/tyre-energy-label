@@ -72,7 +72,7 @@ class TyreEnergyLabel:
             'eprel_link': link,
             'icon_count': sum([bool(snow_grip), bool(ice_grip)]) + 1
         }
-        if noise_level.upper() not in ('A', 'B', 'C'):
+        if noise_level and noise_level.upper() not in ('A', 'B', 'C'):
             raise ValueError(f'Invalid noise level "{noise_level}", expected A, B or C')
 
         self.jinja_env = Environment(loader=FileSystemLoader(ROOT_DIR / 'templates'))
