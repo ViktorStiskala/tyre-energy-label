@@ -13,11 +13,11 @@ with open(ROOT_DIR / 'README.md', 'r') as f_readme:
 
 setup(
     name="tyre-energy-label",
-    version="1.0.3",
+    version="1.1.0",
     packages=["tyre_label"],
     package_data={'tyre_label': ['tyre_label/templates/*']},
     include_package_data=True,
-    install_requires=["qrcode>=3.0.0", "jinja2>=2.9"],
+    install_requires=["qrcode>=7.0", "jinja2>=2.9"],
     license='MIT',
     description='EU tyres energy label generator',
     long_description=long_description,

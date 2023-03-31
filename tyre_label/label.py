@@ -84,16 +84,14 @@ class TyreEnergyLabel:
         qr = qrcode.QRCode(
             version=1,
             error_correction=qrcode.constants.ERROR_CORRECT_M,
-            box_size=11,
+            box_size=3,
             border=0
         )
         qr.add_data(self.data['eprel_link'])
         qr.make(fit=True)
 
         img = qr.make_image(fill_color="black", back_color="white", image_factory=SvgPathImage)
-        svg_path = img.make_path()
-
-        return ET.tostring(svg_path, encoding='unicode')
+        return img.to_string(encoding='unicode')
 
     def as_svg(self, embed_fonts: bool = True, include_link: bool = True) -> str:
         template = self.jinja_env.get_template('label.svg.j2')

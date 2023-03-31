@@ -30,7 +30,7 @@ class TestLabel(TestCase):
         svg_g = root.find('.//svg:g[@id="QR"]', namespaces=namespaces)
         qr_path = svg_g.find('.//svg:path', namespaces=namespaces)
 
-        self.assertRegex(qr_path.attrib['d'], r'.*M\s[\d\.]+.*', msg='SVG file should contain QR code')
+        self.assertRegex(qr_path.attrib['d'], r'.*M[\d\.]+.*', msg='SVG file should contain QR code')
 
     def test_svg_output(self):
         label = TyreEnergyLabel(**TEST_LABEL_DATA)
