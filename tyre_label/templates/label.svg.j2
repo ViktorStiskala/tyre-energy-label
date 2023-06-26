@@ -442,10 +442,14 @@
         {% if qr_code %}
             <g id="QR" transform="translate(173.000000, 8.000000)">
                 {% if include_link %}
-                <a href="{{ tyre.eprel_link }}" target="_blank"><polygon id="QR-code" fill="#FFFFFF" points="0 32 32 32 32 0 0 0"></polygon>
+                <a href="{{ tyre.eprel_link }}" target="_blank">
+                <polygon id="QR-code" fill="#FFFFFF" points="0 32 32 32 32 0 0 0">
+                </polygon>
                 {% endif %}
 
+                <g transform="translate(0,-5) scale(0.15, 0.15)">
                 {{ qr_code }}
+                </g>
 
                 {% if include_link %}</a>{% endif %}
             </g>
